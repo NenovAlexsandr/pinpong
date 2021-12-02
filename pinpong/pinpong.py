@@ -71,7 +71,7 @@ fon = transform.scale(image.load("2.png.jpg"),(500,500))
 plat = Player('1.png.png', 5, win_width - 80,4)
 plat2 = Player('3.png.png', 435, win_width - 80,4)
 
-smert = transform.scale(image.load("5.png.jpg"),(250,500))
+smert = transform.scale(image.load("5.png.png"),(250,500))
 mach = GameSprite("4.png.png",80,80,10)
 
 
@@ -104,7 +104,7 @@ while run:
     plat.reset()
     plat2.update2()
     plat2.reset()    
-#    window.blit(lose1,(100,100))
+
 
 
     if mach.rect.y > win_height - 50 or mach.rect.y < 0:
@@ -125,7 +125,7 @@ while run:
 
 
     if mach.rect.x <= -0:
-        window.blit(smert,(250,0))
+        window.blit(smert,(0,0))
         mach.rect.y = 250
         mach.rect.x = 250
         
