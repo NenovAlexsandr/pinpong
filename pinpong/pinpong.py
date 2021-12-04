@@ -21,7 +21,17 @@ class GameSprite(sprite.Sprite):
  
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
-
+    def update_skin(self):
+        keys = key.get_pressed()
+        if keys[K_s]:
+            if keys[K_0]:
+                skin = "4.png.png"
+            if keys[K_1]:
+                skin = "pngegg.png"
+            if keys[K_2]:
+                skin = "pngegg2.png"
+            if keys[K_3]:
+                skin = "pngegg3.png"       
 
 
 
@@ -39,6 +49,7 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys[K_s] and self.rect.y < 500 - 80:
             self.rect.y += self.speed
+         
 
 
 
@@ -62,8 +73,7 @@ class Label(Area):
       window.blit(self.image, (self.rect.x + shift_x, self.rect.y + shift_y))
 
 
-
-
+skin = "4.png.png"
 
 
 
@@ -72,11 +82,23 @@ plat = Player('1.png.png', 5, win_width - 80,4)
 plat2 = Player('3.png.png', 435, win_width - 80,4)
 
 smert = transform.scale(image.load("5.png.png"),(250,500))
-mach = GameSprite("4.png.png",80,80,10)
-
+mach = GameSprite(skin,80,80,10)
 
 speed_x = 2
 speed_y = 2
+
+
+keys = key.get_pressed()
+if keys[K_KP0]:
+    skin = "4.png.png"
+if keys[K_1]:
+    skin = "pngegg.png"
+if keys[K_2]:
+    skin = "pngegg2.png"
+if keys[K_3]:
+    skin = "pngegg3.png"    
+
+
 
 
 font.init()
@@ -100,11 +122,21 @@ while run:
 
 
     mach.reset()
+    mach.update_skin()
     plat.update()
     plat.reset()
     plat2.update2()
     plat2.reset()    
+    keys = key.get_pressed()
 
+    if keys[K_0]:
+        skin = "4.png.png"
+    if keys[K_1]:
+        skin = "pngegg.png"
+    if keys[K_2]:
+        skin = "pngegg2.png"
+    if keys[K_3]:
+        skin = "pngegg3.png"    
 
 
     if mach.rect.y > win_height - 50 or mach.rect.y < 0:
